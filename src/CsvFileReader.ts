@@ -2,8 +2,12 @@ import fs from 'fs';
 import { dateStringToDate } from './utils';
 import { MatchResult } from './MatchResult';
 
+type MatchData = [Date, string, string, number, number, MatchResult, string];
+
 export class CsvFileReader {
-  data: string[][] = []; //2 dmiensional array of strings
+  // an array of arrays, and those inner arrays have a
+  // Date, string, string, number, number, MatchResult, string
+  data: MatchData[] = [];
 
   constructor(public filename: string) {}
 
@@ -19,7 +23,7 @@ export class CsvFileReader {
         }
       )
       .map(
-        (row: string[]): any => {
+        (row: string[]): MatchData => {
           return [
             dateStringToDate(row[0]),
             row[1],
