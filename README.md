@@ -24,3 +24,11 @@ TS Reusable code project
     do ctrl+c, then npm start again - error will go away.
 
 9.  add football csv file to root of project :)
+
+https://nodejs.org/docs/latest/api/fs.html#fs_fs_readfilesync_path_options
+
+10. anytime want to work with 3rd party js library, we need to install that type
+    definition file (@types/{library}) unless it is included by default with library itself
+
+11. anytime using anything inside node standard library we are going to install:
+    npm install @types/node - i.e. to use 'fs' or 'os' or 'http' etc etc...

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/deeebeee3/ts4-19-football#readme",
   "dependencies": {
+    "@types/node": "^12.7.1",
     "concurrently": "^4.1.1",
     "nodemon": "^1.19.1"
   }
