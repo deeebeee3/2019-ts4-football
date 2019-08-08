@@ -1,0 +1,26 @@
+{
+  "name": "ts4-19-football",
+  "version": "1.0.0",
+  "description": "TS Reusable code project",
+  "main": "index.js",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deeebeee3/ts4-19-football.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deeebeee3/ts4-19-football/issues"
+  },
+  "homepage": "https://github.com/deeebeee3/ts4-19-football#readme",
+  "dependencies": {
+    "concurrently": "^4.1.1",
+    "nodemon": "^1.19.1"
+  }
+}
