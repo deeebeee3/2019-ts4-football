@@ -1,15 +1,14 @@
 import fs from 'fs';
-import { dateStringToDate } from './utils';
-import { MatchResult } from './MatchResult';
 
-type MatchData = [Date, string, string, number, number, MatchResult, string];
-
-export class CsvFileReader {
+export abstract class CsvFileReader<T> {
   // an array of arrays, and those inner arrays have a
   // Date, string, string, number, number, MatchResult, string
-  data: MatchData[] = [];
+  data: T[] = [];
 
   constructor(public filename: string) {}
+
+  //method stub that the child class
+  abstract mapRow(row: string[]): T;
 
   read(): void {
     this.data = fs
@@ -23,17 +22,5 @@ export class CsvFileReader {
         }
       )
       .map(this.mapRow);
-  }
-
-  mapRow(row: string[]): MatchData {
-    return [
-      dateStringToDate(row[0]),
-      row[1],
-      row[2],
-      parseInt(row[3]),
-      parseInt(row[4]),
-      row[5] as MatchResult, //type assertion - value is a string but we tell ts to treat it as enum value
-      row[6]
-    ];
   }
 }
